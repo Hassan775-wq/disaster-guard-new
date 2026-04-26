@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Arial, sans-serif;
+        background: #f9fafb;
+      }
+      .box {
+        text-align: center;
+        padding: 18px;
+      }
+      .hint {
+        margin-top: 10px;
+        color: #6b7280;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div
+        class="g-recaptcha"
+        data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+        data-callback="onCaptchaSuccess"
+        data-expired-callback="onCaptchaExpired"
+        data-error-callback="onCaptchaError"
+      ></div>
+      <div class="hint">Complete the CAPTCHA to continue.</div>
+    </div>
+    <script>
+      function onCaptchaSuccess(token) {
+        window.ReactNativeWebView.postMessage(token);
+      }
+      function onCaptchaExpired() {
+        window.ReactNativeWebView.postMessage('captcha-expired');
+      }
+      function onCaptchaError() {
+        window.ReactNativeWebView.postMessage('captcha-error');
+      }
+    </script>
+  </body>
+</html>
