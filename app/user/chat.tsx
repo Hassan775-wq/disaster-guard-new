@@ -103,41 +103,34 @@ export default function ChatScreen() {
     setLoading(true);
 
     try {
-      const response = await fetch(GROQ_ENDPOINT, {
-        method: 'POST',
-        headers: new Headers({
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${GROQ_API_KEY}`,
-        }),
-        body: JSON.stringify({
+      const aiReply = await new Promise<string>((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', GROQ_ENDPOINT);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.setRequestHeader('Authorization', `Bearer ${GROQ_API_KEY}`);
+        xhr.onload = () => {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            const data = JSON.parse(xhr.responseText);
+            resolve(data?.choices?.[0]?.message?.content || "I'm here to help. Could you rephrase that?");
+          } else {
+            reject(new Error(`API error: ${xhr.status}`));
+          }
+        };
+        xhr.onerror = () => reject(new Error('Network request failed'));
+        xhr.send(JSON.stringify({
           model: 'llama-3.3-70b-versatile',
           messages: [
             { role: 'system', content: SYSTEM_PROMPT },
             { role: 'user', content: userMsg },
           ],
-        }),
+        }));
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data?.error?.message || 'Failed to connect to Groq API.');
-      }
-
-      const aiReply =
-        data?.choices?.[0]?.message?.content ||
-        "I'm here to help. Could you rephrase that?";
 
       const replyTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       setAiMessages((prev) =>
         prev.map((msg) =>
           msg.id === typingId
-            ? {
-                id: `ai-${Date.now()}`,
-                role: 'ai',
-                text: aiReply.trim(),
-                time: replyTime,
-              }
+            ? { id: `ai-${Date.now()}`, role: 'ai', text: aiReply.trim(), time: replyTime }
             : msg
         )
       );
