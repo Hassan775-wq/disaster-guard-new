@@ -105,10 +105,10 @@ export default function ChatScreen() {
     try {
       const response = await fetch(GROQ_ENDPOINT, {
         method: 'POST',
-        headers: {
+        headers: new Headers({
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${GROQ_API_KEY}`,
-        },
+          'Authorization': `Bearer ${GROQ_API_KEY}`,
+        }),
         body: JSON.stringify({
           model: 'llama-3.3-70b-versatile',
           messages: [
