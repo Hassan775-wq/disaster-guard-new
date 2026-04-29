@@ -12,7 +12,7 @@ type AiMessage = {
   isTyping?: boolean;
 };
 
-const GROQ_API_KEY = process.env.NEXT_PUBLIC_GROQ_API_KEY
+const GROQ_API_KEY = process.env.EXPO_PUBLIC_GROQ_API_KEY
 const GROQ_ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
 const SYSTEM_PROMPT =
   'You are DisasterGuard AI, an expert emergency assistant. Provide concise, practical guidance for emergency safety, evacuation routes, shelter information, and disaster preparedness. Prioritize life safety, include actionable steps, and advise contacting local emergency services for immediate danger.';
