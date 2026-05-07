@@ -1,0 +1,604 @@
+{
+  "alerts": [
+    {
+      "id": "alert_001",
+      "title": "Tsunami",
+      "description": "Heavy snow with strong winds and low visibility.",
+      "predictedTime": "In 24 hours",
+      "severity": "High",
+      "confidence": 91,
+      "location": "Gadap Town, Karachi",
+      "timestamp": "2026-05-11T05:15:25.034036+00:00"
+    },
+    {
+      "id": "alert_002",
+      "title": "Cyclone",
+      "description": "Delectus delectus accusamus natus iste dolore dolorum nihil esse perspiciatis velit temporibus veritatis ipsa quos.",
+      "predictedTime": "In 24 hours",
+      "severity": "High",
+      "confidence": 81,
+      "location": "South District, Karachi",
+      "timestamp": "2026-05-05T07:38:25.034063+00:00"
+    },
+    {
+      "id": "alert_003",
+      "title": "Volcanic Eruption",
+      "description": "Rapid snow or ice mass movement down slopes.",
+      "predictedTime": "Within minutes",
+      "severity": "Critical",
+      "confidence": 94,
+      "location": "Korangi, Karachi",
+      "timestamp": "2026-05-02T08:12:25.034111+00:00"
+    },
+    {
+      "id": "alert_004",
+      "title": "Hurricane",
+      "description": "Beatae hic excepturi pariatur reiciendis nam fugiat id fugit qui unde hic itaque officiis illum.",
+      "predictedTime": "In 2 days",
+      "severity": "Low",
+      "confidence": 70,
+      "location": "Bin Qasim, Karachi",
+      "timestamp": "2026-05-05T03:22:25.034122+00:00"
+    },
+    {
+      "id": "alert_005",
+      "title": "Drought",
+      "description": "Corporis minus natus quaerat repellat praesentium id nam quia.",
+      "predictedTime": "In 2 days",
+      "severity": "High",
+      "confidence": 60,
+      "location": "North Karachi, Karachi",
+      "timestamp": "2026-05-05T05:29:25.034150+00:00"
+    },
+    {
+      "id": "alert_006",
+      "title": "Blizzard",
+      "description": "Severe electrical storm with lightning and rain.",
+      "predictedTime": "In 30 minutes",
+      "severity": "High",
+      "confidence": 78,
+      "location": "Malir, Karachi",
+      "timestamp": "2026-05-07T03:07:25.034171+00:00"
+    },
+    {
+      "id": "alert_007",
+      "title": "Dust Storm",
+      "description": "Significant ground movement detected in the area.",
+      "predictedTime": "In 3 days",
+      "severity": "Low",
+      "confidence": 87,
+      "location": "Defence, Karachi",
+      "timestamp": "2026-04-30T23:22:25.034178+00:00"
+    },
+    {
+      "id": "alert_008",
+      "title": "Drought",
+      "description": "Rotating storm system over tropical waters.",
+      "predictedTime": "In 24 hours",
+      "severity": "Critical",
+      "confidence": 93,
+      "location": "Gadap Town, Karachi",
+      "timestamp": "2026-05-05T00:20:25.034184+00:00"
+    },
+    {
+      "id": "alert_009",
+      "title": "Volcanic Eruption",
+      "description": "Intense rainfall expected to cause flooding.",
+      "predictedTime": "In 4 hours",
+      "severity": "High",
+      "confidence": 67,
+      "location": "Gulshan-e-Iqbal, Karachi",
+      "timestamp": "2026-05-08T22:05:25.034190+00:00"
+    },
+    {
+      "id": "alert_010",
+      "title": "Earthquake",
+      "description": "Sudden and rapid water overflow in rivers.",
+      "predictedTime": "In 6 hours",
+      "severity": "Low",
+      "confidence": 78,
+      "location": "New Karachi, Karachi",
+      "timestamp": "2026-05-03T20:40:25.034201+00:00"
+    },
+    {
+      "id": "alert_011",
+      "title": "Blizzard",
+      "description": "Prolonged lack of precipitation causing water scarcity.",
+      "predictedTime": "In 1 hour",
+      "severity": "Moderate",
+      "confidence": 61,
+      "location": "Orangi Town, Karachi",
+      "timestamp": "2026-05-01T10:43:25.034207+00:00"
+    },
+    {
+      "id": "alert_012",
+      "title": "Earthquake",
+      "description": "Severe storm system approaching with high wind speeds.",
+      "predictedTime": "In 24 hours",
+      "severity": "Low",
+      "confidence": 87,
+      "location": "Clifton, Karachi",
+      "timestamp": "2026-05-01T21:12:25.034213+00:00"
+    },
+    {
+      "id": "alert_013",
+      "title": "Hailstorm",
+      "description": "Rapid snow or ice mass movement down slopes.",
+      "predictedTime": "In 6 hours",
+      "severity": "Low",
+      "confidence": 62,
+      "location": "New Karachi, Karachi",
+      "timestamp": "2026-05-10T10:16:25.034219+00:00"
+    },
+    {
+      "id": "alert_014",
+      "title": "Volcanic Eruption",
+      "description": "Maxime perferendis ab placeat corrupti rerum magni tenetur voluptatum exercitationem velit possimus deserunt minima exercitationem ducimus.",
+      "predictedTime": "Immediate",
+      "severity": "High",
+      "confidence": 63,
+      "location": "Lyari, Karachi",
+      "timestamp": "2026-05-12T00:01:25.034225+00:00"
+    },
+    {
+      "id": "alert_015",
+      "title": "Heavy Rainfall",
+      "description": "Molten rock and ash eruption from volcano.",
+      "predictedTime": "Immediate",
+      "severity": "Moderate",
+      "confidence": 81,
+      "location": "North Karachi, Karachi",
+      "timestamp": "2026-05-11T17:33:25.034246+00:00"
+    },
+    {
+      "id": "alert_016",
+      "title": "Hurricane",
+      "description": "Strong winds carrying dust and sand.",
+      "predictedTime": "Immediate",
+      "severity": "Critical",
+      "confidence": 62,
+      "location": "Lyari, Karachi",
+      "timestamp": "2026-05-13T00:05:25.034253+00:00"
+    },
+    {
+      "id": "alert_017",
+      "title": "Landslide",
+      "description": "Pariatur amet reiciendis reiciendis alias harum commodi libero aut nisi ab est harum.",
+      "predictedTime": "In 24 hours",
+      "severity": "Moderate",
+      "confidence": 93,
+      "location": "Lyari, Karachi",
+      "timestamp": "2026-05-07T11:22:25.034259+00:00"
+    },
+    {
+      "id": "alert_018",
+      "title": "Tornado",
+      "description": "Prolonged lack of precipitation causing water scarcity.",
+      "predictedTime": "Within minutes",
+      "severity": "Low",
+      "confidence": 93,
+      "location": "Baldia Town, Karachi",
+      "timestamp": "2026-05-12T12:08:25.034278+00:00"
+    },
+    {
+      "id": "alert_019",
+      "title": "Landslide",
+      "description": "Large ice and water precipitation.",
+      "predictedTime": "In 1 hour",
+      "severity": "Critical",
+      "confidence": 97,
+      "location": "Malir, Karachi",
+      "timestamp": "2026-05-10T00:05:25.034285+00:00"
+    },
+    {
+      "id": "alert_020",
+      "title": "Dust Storm",
+      "description": "Severe storm system approaching with high wind speeds.",
+      "predictedTime": "In 2 hours",
+      "severity": "Low",
+      "confidence": 94,
+      "location": "Malir, Karachi",
+      "timestamp": "2026-05-09T00:21:25.034290+00:00"
+    },
+    {
+      "id": "alert_021",
+      "title": "Avalanche",
+      "description": "Rotating storm system over tropical waters.",
+      "predictedTime": "In 6 hours",
+      "severity": "High",
+      "confidence": 74,
+      "location": "Malir, Karachi",
+      "timestamp": "2026-05-08T15:39:25.034296+00:00"
+    },
+    {
+      "id": "alert_022",
+      "title": "Heat Wave",
+      "description": "Heavy snow with strong winds and low visibility.",
+      "predictedTime": "In 2 days",
+      "severity": "Critical",
+      "confidence": 74,
+      "location": "Bin Qasim, Karachi",
+      "timestamp": "2026-05-04T14:03:25.034301+00:00"
+    },
+    {
+      "id": "alert_023",
+      "title": "Blizzard",
+      "description": "Sudden and rapid water overflow in rivers.",
+      "predictedTime": "In 30 minutes",
+      "severity": "High",
+      "confidence": 66,
+      "location": "Clifton, Karachi",
+      "timestamp": "2026-05-13T01:38:25.034307+00:00"
+    },
+    {
+      "id": "alert_024",
+      "title": "Landslide",
+      "description": "Illo deleniti vitae quae itaque unde voluptate dolor quas aliquam suscipit quisquam nihil.",
+      "predictedTime": "In 30 minutes",
+      "severity": "Moderate",
+      "confidence": 68,
+      "location": "Defence, Karachi",
+      "timestamp": "2026-05-06T06:03:25.034313+00:00"
+    },
+    {
+      "id": "alert_025",
+      "title": "Hurricane",
+      "description": "Rotating column of air with destructive winds.",
+      "predictedTime": "In 30 minutes",
+      "severity": "High",
+      "confidence": 76,
+      "location": "Jamshed Town, Karachi",
+      "timestamp": "2026-05-14T02:07:25.034329+00:00"
+    },
+    {
+      "id": "alert_026",
+      "title": "Flood",
+      "description": "Heavy water accumulation posing risk to low-lying areas.",
+      "predictedTime": "Within minutes",
+      "severity": "Critical",
+      "confidence": 67,
+      "location": "Baldia Town, Karachi",
+      "timestamp": "2026-05-07T03:22:25.034336+00:00"
+    },
+    {
+      "id": "alert_027",
+      "title": "Tsunami",
+      "description": "Molten rock and ash eruption from volcano.",
+      "predictedTime": "Immediate",
+      "severity": "High",
+      "confidence": 79,
+      "location": "Jamshed Town, Karachi",
+      "timestamp": "2026-05-04T19:14:25.034342+00:00"
+    },
+    {
+      "id": "alert_028",
+      "title": "Hurricane",
+      "description": "Significant ground movement detected in the area.",
+      "predictedTime": "In 1 hour",
+      "severity": "Moderate",
+      "confidence": 78,
+      "location": "New Karachi, Karachi",
+      "timestamp": "2026-05-03T19:02:25.034350+00:00"
+    },
+    {
+      "id": "alert_029",
+      "title": "Heat Wave",
+      "description": "Rotating storm system over tropical waters.",
+      "predictedTime": "In 24 hours",
+      "severity": "High",
+      "confidence": 96,
+      "location": "South District, Karachi",
+      "timestamp": "2026-05-06T05:16:25.034356+00:00"
+    },
+    {
+      "id": "alert_030",
+      "title": "Heat Wave",
+      "description": "Risk of soil displacement on steep terrain.",
+      "predictedTime": "In 3 days",
+      "severity": "High",
+      "confidence": 78,
+      "location": "Jamshed Town, Karachi",
+      "timestamp": "2026-05-05T14:46:25.034361+00:00"
+    },
+    {
+      "id": "alert_031",
+      "title": "Hurricane",
+      "description": "Ab optio odio fugit provident quasi eum culpa eveniet eum doloribus nobis.",
+      "predictedTime": "Immediate",
+      "severity": "High",
+      "confidence": 94,
+      "location": "Gulshan-e-Iqbal, Karachi",
+      "timestamp": "2026-05-02T13:46:25.034367+00:00"
+    },
+    {
+      "id": "alert_032",
+      "title": "Tornado",
+      "description": "Rem odit inventore repudiandae perferendis at molestiae ipsum sequi excepturi non.",
+      "predictedTime": "In 12 hours",
+      "severity": "Moderate",
+      "confidence": 86,
+      "location": "North Karachi, Karachi",
+      "timestamp": "2026-05-12T19:59:25.034383+00:00"
+    },
+    {
+      "id": "alert_033",
+      "title": "Drought",
+      "description": "Soluta accusantium quos rerum ullam eum quis consequuntur quas.",
+      "predictedTime": "In 6 hours",
+      "severity": "Low",
+      "confidence": 70,
+      "location": "Korangi, Karachi",
+      "timestamp": "2026-05-05T09:26:25.034399+00:00"
+    },
+    {
+      "id": "alert_034",
+      "title": "Tsunami",
+      "description": "Significant ground movement detected in the area.",
+      "predictedTime": "In 2 days",
+      "severity": "Low",
+      "confidence": 70,
+      "location": "Gadap Town, Karachi",
+      "timestamp": "2026-05-08T17:00:25.034416+00:00"
+    },
+    {
+      "id": "alert_035",
+      "title": "Heavy Rainfall",
+      "description": "Rotating storm system over tropical waters.",
+      "predictedTime": "In 3 days",
+      "severity": "High",
+      "confidence": 96,
+      "location": "South District, Karachi",
+      "timestamp": "2026-05-04T05:52:25.034424+00:00"
+    },
+    {
+      "id": "alert_036",
+      "title": "Heat Wave",
+      "description": "Sudden and rapid water overflow in rivers.",
+      "predictedTime": "Immediate",
+      "severity": "Critical",
+      "confidence": 76,
+      "location": "Lyari, Karachi",
+      "timestamp": "2026-05-13T21:24:25.034430+00:00"
+    },
+    {
+      "id": "alert_037",
+      "title": "Dust Storm",
+      "description": "Large ice and water precipitation.",
+      "predictedTime": "Immediate",
+      "severity": "High",
+      "confidence": 84,
+      "location": "North Karachi, Karachi",
+      "timestamp": "2026-05-03T10:09:25.034435+00:00"
+    },
+    {
+      "id": "alert_038",
+      "title": "Blizzard",
+      "description": "Expedita dolores accusamus sapiente temporibus architecto tenetur laborum.",
+      "predictedTime": "In 1 hour",
+      "severity": "High",
+      "confidence": 69,
+      "location": "Korangi, Karachi",
+      "timestamp": "2026-05-03T11:20:25.034442+00:00"
+    },
+    {
+      "id": "alert_039",
+      "title": "Drought",
+      "description": "Heavy snow with strong winds and low visibility.",
+      "predictedTime": "In 3 days",
+      "severity": "High",
+      "confidence": 79,
+      "location": "Defence, Karachi",
+      "timestamp": "2026-05-11T09:31:25.034457+00:00"
+    },
+    {
+      "id": "alert_040",
+      "title": "Hurricane",
+      "description": "Porro libero cupiditate deleniti laborum vero ad consequatur nulla provident.",
+      "predictedTime": "In 1 hour",
+      "severity": "Moderate",
+      "confidence": 71,
+      "location": "New Karachi, Karachi",
+      "timestamp": "2026-05-05T10:57:25.034464+00:00"
+    },
+    {
+      "id": "alert_041",
+      "title": "Tornado",
+      "description": "Rapid snow or ice mass movement down slopes.",
+      "predictedTime": "In 12 hours",
+      "severity": "Moderate",
+      "confidence": 64,
+      "location": "New Karachi, Karachi",
+      "timestamp": "2026-05-10T09:57:25.034479+00:00"
+    },
+    {
+      "id": "alert_042",
+      "title": "Hurricane",
+      "description": "Strong winds carrying dust and sand.",
+      "predictedTime": "Immediate",
+      "severity": "Moderate",
+      "confidence": 100,
+      "location": "Clifton, Karachi",
+      "timestamp": "2026-05-02T12:52:25.034486+00:00"
+    },
+    {
+      "id": "alert_043",
+      "title": "Avalanche",
+      "description": "Quidem magni eius provident consectetur sed temporibus architecto deserunt placeat recusandae.",
+      "predictedTime": "In 24 hours",
+      "severity": "Low",
+      "confidence": 89,
+      "location": "North Karachi, Karachi",
+      "timestamp": "2026-05-02T10:11:25.034492+00:00"
+    },
+    {
+      "id": "alert_044",
+      "title": "Wildfires",
+      "description": "Dolorem sapiente nemo adipisci illo velit dolorem inventore dignissimos.",
+      "predictedTime": "In 1 hour",
+      "severity": "Low",
+      "confidence": 86,
+      "location": "South District, Karachi",
+      "timestamp": "2026-05-09T14:12:25.034510+00:00"
+    },
+    {
+      "id": "alert_045",
+      "title": "Heat Wave",
+      "description": "Explicabo nam officiis adipisci facere sit perspiciatis molestias fugiat inventore porro id odit dicta hic.",
+      "predictedTime": "In 6 hours",
+      "severity": "High",
+      "confidence": 62,
+      "location": "Clifton, Karachi",
+      "timestamp": "2026-05-01T23:59:25.034526+00:00"
+    },
+    {
+      "id": "alert_046",
+      "title": "Volcanic Eruption",
+      "description": "Molten rock and ash eruption from volcano.",
+      "predictedTime": "Immediate",
+      "severity": "Low",
+      "confidence": 78,
+      "location": "Clifton, Karachi",
+      "timestamp": "2026-05-04T04:54:25.034542+00:00"
+    },
+    {
+      "id": "alert_047",
+      "title": "Wildfires",
+      "description": "Rotating storm system over tropical waters.",
+      "predictedTime": "Immediate",
+      "severity": "Critical",
+      "confidence": 63,
+      "location": "Clifton, Karachi",
+      "timestamp": "2026-05-07T23:10:25.034549+00:00"
+    },
+    {
+      "id": "alert_048",
+      "title": "Drought",
+      "description": "Rotating storm system over tropical waters.",
+      "predictedTime": "In 2 days",
+      "severity": "High",
+      "confidence": 95,
+      "location": "South District, Karachi",
+      "timestamp": "2026-05-02T20:10:25.034555+00:00"
+    },
+    {
+      "id": "alert_049",
+      "title": "Thunderstorm",
+      "description": "Uncontrolled fire spreading through vegetation.",
+      "predictedTime": "In 3 days",
+      "severity": "Critical",
+      "confidence": 76,
+      "location": "New Karachi, Karachi",
+      "timestamp": "2026-05-09T14:04:25.034560+00:00"
+    },
+    {
+      "id": "alert_050",
+      "title": "Flash Flood",
+      "description": "Molten rock and ash eruption from volcano.",
+      "predictedTime": "Within minutes",
+      "severity": "Low",
+      "confidence": 96,
+      "location": "Defence, Karachi",
+      "timestamp": "2026-05-13T11:05:25.034566+00:00"
+    },
+    {
+      "id": "alert_051",
+      "title": "Dust Storm",
+      "description": "Asperiores numquam eius praesentium ut vero magnam tempore veritatis molestiae optio.",
+      "predictedTime": "In 30 minutes",
+      "severity": "High",
+      "confidence": 78,
+      "location": "Bin Qasim, Karachi",
+      "timestamp": "2026-05-03T08:54:25.034572+00:00"
+    },
+    {
+      "id": "alert_052",
+      "title": "Cyclone",
+      "description": "Severe storm system approaching with high wind speeds.",
+      "predictedTime": "In 12 hours",
+      "severity": "Low",
+      "confidence": 61,
+      "location": "Clifton, Karachi",
+      "timestamp": "2026-05-10T03:31:25.034587+00:00"
+    },
+    {
+      "id": "alert_053",
+      "title": "Flood",
+      "description": "Sudden and rapid water overflow in rivers.",
+      "predictedTime": "In 2 hours",
+      "severity": "Moderate",
+      "confidence": 81,
+      "location": "Orangi Town, Karachi",
+      "timestamp": "2026-05-09T01:13:25.034594+00:00"
+    },
+    {
+      "id": "alert_054",
+      "title": "Heat Wave",
+      "description": "Sudden and rapid water overflow in rivers.",
+      "predictedTime": "In 4 hours",
+      "severity": "Low",
+      "confidence": 69,
+      "location": "Jamshed Town, Karachi",
+      "timestamp": "2026-05-05T20:19:25.034602+00:00"
+    },
+    {
+      "id": "alert_055",
+      "title": "Hurricane",
+      "description": "Heavy snow with strong winds and low visibility.",
+      "predictedTime": "In 30 minutes",
+      "severity": "Critical",
+      "confidence": 61,
+      "location": "Jamshed Town, Karachi",
+      "timestamp": "2026-05-11T01:39:25.034608+00:00"
+    },
+    {
+      "id": "alert_056",
+      "title": "Wildfires",
+      "description": "Uncontrolled fire spreading through vegetation.",
+      "predictedTime": "Within minutes",
+      "severity": "Low",
+      "confidence": 68,
+      "location": "Korangi, Karachi",
+      "timestamp": "2026-05-03T19:52:25.034614+00:00"
+    },
+    {
+      "id": "alert_057",
+      "title": "Flood",
+      "description": "Non dolor quibusdam perspiciatis impedit quasi quas quam itaque.",
+      "predictedTime": "In 3 days",
+      "severity": "Moderate",
+      "confidence": 61,
+      "location": "Defence, Karachi",
+      "timestamp": "2026-05-06T16:59:25.034619+00:00"
+    },
+    {
+      "id": "alert_058",
+      "title": "Landslide",
+      "description": "Asperiores perspiciatis pariatur sint inventore ullam occaecati exercitationem corrupti fugiat ipsum qui.",
+      "predictedTime": "In 2 hours",
+      "severity": "Low",
+      "confidence": 68,
+      "location": "East District, Karachi",
+      "timestamp": "2026-05-04T09:01:25.034635+00:00"
+    },
+    {
+      "id": "alert_059",
+      "title": "Wildfires",
+      "description": "Large ice and water precipitation.",
+      "predictedTime": "In 2 days",
+      "severity": "Critical",
+      "confidence": 87,
+      "location": "Baldia Town, Karachi",
+      "timestamp": "2026-05-13T19:18:25.034652+00:00"
+    },
+    {
+      "id": "alert_060",
+      "title": "Flash Flood",
+      "description": "Severe storm system approaching with high wind speeds.",
+      "predictedTime": "In 1 hour",
+      "severity": "Critical",
+      "confidence": 62,
+      "location": "Malir, Karachi",
+      "timestamp": "2026-05-01T13:34:25.034659+00:00"
+    }
+  ]
+}

@@ -1,60 +1,14 @@
+
 import { Feather } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import { useState } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
 import { Alert, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../../context/ThemeContext';
+import { db } from '../../../firebaseConfig';
 import AlertCard from './AlertCard';
 
-const alertsData = [
-  {
-    title: 'Heavy Monsoon Rain Expected',
-    level: 'High',
-    levelColor: '#FF6F00',
-    levelBg: '#FFF3E0',
-    icon: '⚠️',
-    iconBg: '#FFF3E0',
-    desc: 'Meteorological department forecasts 150-200mm rainfall in next 48 hours. Urban flooding likely in low-lying areas.',
-    time: 'In 48 hours',
-    date: 'Feb 19, 6:00 AM',
-    confidence: 89,
-    confidenceColor: '#43a047',
-    action: 'Recommended Action: High Alert',
-    actionDesc: 'Start preparing emergency supplies and evacuation plans',
-    actionBg: '#FFF3E0',
-  },
-  {
-    title: 'Seismic Activity Monitoring',
-    level: 'Moderate',
-    levelColor: '#F9A825',
-    levelBg: '#FFFDE7',
-    icon: '⚠️',
-    iconBg: '#FFFDE7',
-    desc: 'Minor tremors detected. Aftershocks possible in next 24-36 hours. Stay alert and follow safety protocols.',
-    time: 'In 24 hours',
-    date: 'Feb 18, 12:00 PM',
-    confidence: 62,
-    confidenceColor: '#FF6F00',
-    action: 'Recommended Action: Stay Vigilant',
-    actionDesc: 'Monitor situation and stay informed',
-    actionBg: '#EEF2FF',
-  },
-  {
-    title: 'Heat Wave Warning',
-    level: 'Low',
-    levelColor: '#1565C0',
-    levelBg: '#E3F2FD',
-    icon: '⚠️',
-    iconBg: '#E3F2FD',
-    desc: 'Temperature expected to rise above 42°C. Increased risk of electrical fires. Conserve electricity and stay hydrated.',
-    time: 'In 12 hours',
-    date: 'Feb 18, 3:00 PM',
-    confidence: 94,
-    confidenceColor: '#43a047',
-    action: 'Recommended Action: Monitor Conditions',
-    actionDesc: 'Monitor situation and stay informed',
-    actionBg: '#EEF2FF',
-  },
-];
+// alerts state will replace the previous hardcoded `alertsData`
 
 const severityLevels = ['Critical', 'High', 'Moderate', 'Low'];
 const severityColors: Record<string, { text: string; border: string }> = {
@@ -68,6 +22,7 @@ export default function AlertsScreen() {
   const router = useRouter();
   const { theme, isDark, isHighContrast, toggleTheme } = useTheme(); // Theme Hook
   const [pushEnabled, setPushEnabled] = useState(true);
+  const [alerts, setAlerts] = useState<any[]>([]);
   const [activeFilters, setActiveFilters] = useState(['Critical', 'High', 'Moderate', 'Low']);
 
   const toggleFilter = (level: string) => {
@@ -76,7 +31,67 @@ export default function AlertsScreen() {
     );
   };
 
-  const filteredAlerts = alertsData.filter(a => activeFilters.includes(a.level));
+  useEffect(() => {
+    let mounted = true;
+    const loadAlerts = async () => {
+      try {
+        const snap = await getDocs(collection(db, 'alerts'));
+        const items = snap.docs.map((doc: any) => {
+          const d: any = doc.data();
+          // Normalize fields to match existing UI expectations (use `level`)
+          const severity = d.severity || d.level || 'Low';
+
+          // Handle timestamp which can be Firestore Timestamp or ISO string
+          let dateStr = '';
+          if (d.timestamp) {
+            try {
+              let dt: Date;
+              if ((d.timestamp as any).toDate) {
+                dt = (d.timestamp as any).toDate();
+              } else if (typeof d.timestamp === 'string') {
+                dt = new Date(d.timestamp);
+              } else {
+                dt = new Date();
+              }
+              dateStr = dt.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+            } catch (e) {
+              dateStr = '';
+            }
+          }
+
+          // Map Firestore document to alert object expected by AlertCard
+          return {
+            id: doc.id,
+            title: d.title || d.name || 'Untitled Alert',
+            level: severity,
+            // derive simple colors from severity mapping when possible
+            levelColor: severityColors[severity]?.text || '#000',
+            levelBg: severityColors[severity]?.border || '#fff',
+            icon: d.icon || '⚠️',
+            iconBg: d.iconBg || (severityColors[severity]?.border || '#fff'),
+            desc: d.description || d.desc || '',
+            time: d.predictedTime || d.time || '',
+            date: dateStr || (d.date || ''),
+            confidence: typeof d.confidence === 'number' ? d.confidence : (d.confidencePercent || 0),
+            confidenceColor: d.confidenceColor || '#43a047',
+            action: d.action || '',
+            actionDesc: d.actionDesc || '',
+            actionBg: d.actionBg || '#FFF',
+            // include raw firestore fields for debugging or future use
+            _raw: d,
+          };
+        });
+        if (mounted) setAlerts(items);
+      } catch (err) {
+        console.warn('Failed to load alerts from Firestore', err);
+      }
+    };
+
+    loadAlerts();
+    return () => { mounted = false; };
+  }, []);
+
+  const filteredAlerts = alerts.filter(a => activeFilters.includes(a.level));
 
   const handleViewHistory = () => {
     router.push('/user/alerts/alert-history' as any);
@@ -120,7 +135,7 @@ export default function AlertsScreen() {
         ) : (
           filteredAlerts.map((a, i) => (
             <AlertCard
-              key={i}
+              key={a.id ?? i}
               alert={a}
               isDark={isDark}
               isHighContrast={isHighContrast}
