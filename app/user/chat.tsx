@@ -3,6 +3,7 @@ import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
+import { GROQ_SECRET } from '../../groq-secret';
 
 type AiMessage = {
   id: string;
@@ -12,12 +13,47 @@ type AiMessage = {
   isTyping?: boolean;
 };
 
-const GROQ_API_KEY = process.env.EXPO_PUBLIC_GROQ_API_KEY
-console.log('API Key loaded:', GROQ_API_KEY ? 'YES' : 'NO - KEY IS MISSING');
+const GROQ_API_KEY = process.env.EXPO_PUBLIC_GROQ_API_KEY || GROQ_SECRET;
+console.log('API Key loaded:', GROQ_API_KEY && GROQ_API_KEY !== 'REPLACE_ME' ? 'YES' : 'NO - KEY IS MISSING');
 
 const GROQ_ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
-const SYSTEM_PROMPT =
-  'You are DisasterGuard AI, an expert emergency assistant. Provide concise, practical guidance for emergency safety, evacuation routes, shelter information, and disaster preparedness. Prioritize life safety, include actionable steps, and advise contacting local emergency services for immediate danger.';
+const SYSTEM_PROMPT = `### DisasterGuard AI - System Instructions
+- You are DisasterGuard AI, an expert emergency assistant.
+- Provide concise, practical guidance for emergency safety, evacuation routes, shelter information, and disaster preparedness.
+- Use standard Markdown formatting for all responses:
+  1. Use "###" for section headers (treat as bold/section headings).
+  2. Use numbered lists with "1." for ordered steps.
+  3. Use "-" for bullet points and use indentation for nested bullets/sub-items.
+- Prioritize life safety; lead with immediate, actionable steps the user can take.
+- When a situation is life-threatening, advise contacting local emergency services and include local contact suggestions when available.
+- Avoid speculative or unverified information. If unsure, state uncertainty and suggest verified resources.
+`;
+
+const MARKDOWN_STYLES = {
+  heading3: { fontSize: 18, fontWeight: '700', marginVertical: 10, color: '#1A1A1A' },
+  list_item: { marginVertical: 4, flexDirection: 'row', alignItems: 'flex-start' },
+  bullet_list: { paddingLeft: 10 },
+  body: { fontSize: 15, lineHeight: 22, color: '#333' },
+  paragraph: { marginBottom: 12 },
+};
+
+// Wrapper that attempts to use `react-native-markdown-display` at runtime.
+// Falls back to plain Text if the library isn't installed or isn't available
+// on the current platform (prevents the app from crashing with "Markdown is not defined").
+function MarkdownWrapper({ children }: { children: string }) {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const MD = require('react-native-markdown-display');
+    const Component = MD && (MD.default || MD);
+    if (Component) {
+      return <Component style={MARKDOWN_STYLES}>{children}</Component>;
+    }
+  } catch (err) {
+    console.warn('react-native-markdown-display not available, falling back to plain text.');
+  }
+
+  return <Text style={styles.markdownFallback}>{children}</Text>;
+}
 
 // Original static data, now used as the starting point for our State
 const initialCommunityMessages = [
@@ -318,7 +354,11 @@ export default function ChatScreen() {
                   ]}
                 >
                   {msg.role === 'ai' && <Text style={[styles.aiMsgLabel, { color: isHighContrast ? theme.accent : '#1565C0' }]}>🤖 AI Assistant</Text>}
-                  <Text style={[styles.aiMsgText, { color: theme.text }, msg.role === 'user' && styles.aiMsgTextUser]}>{msg.text}</Text>
+                  {msg.role === 'ai' ? (
+                    <MarkdownWrapper>{msg.text}</MarkdownWrapper>
+                  ) : (
+                    <Text style={[styles.aiMsgText, { color: theme.text }, msg.role === 'user' && styles.aiMsgTextUser]}>{msg.text}</Text>
+                  )}
                   <Text
                     style={[
                       styles.aiMsgTime,
@@ -447,4 +487,6 @@ const styles = StyleSheet.create({
   tabLabelActive: { fontWeight: '700' },
   sosBtn: { position: 'absolute', bottom: 140, right: 16, width: 48, height: 48, borderRadius: 24, backgroundColor: '#e53935', alignItems: 'center', justifyContent: 'center' },
   sosText: { color: 'white', fontWeight: '900', fontSize: 22 },
+  markdownFallback: { fontSize: 15, lineHeight: 22, color: '#333', marginBottom: 12 },
+  
 });
