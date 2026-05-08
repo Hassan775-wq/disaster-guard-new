@@ -3,7 +3,6 @@ import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Alert, Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
-import { GROQ_SECRET } from '../../groq-secret';
 
 type AiMessage = {
   id: string;
@@ -13,8 +12,8 @@ type AiMessage = {
   isTyping?: boolean;
 };
 
-const GROQ_API_KEY = process.env.EXPO_PUBLIC_GROQ_API_KEY || GROQ_SECRET;
-console.log('API Key loaded:', GROQ_API_KEY && GROQ_API_KEY !== 'REPLACE_ME' ? 'YES' : 'NO - KEY IS MISSING');
+const GROQ_API_KEY = process.env.EXPO_PUBLIC_GROQ_API_KEY;
+console.log('API Key loaded:', GROQ_API_KEY ? 'YES' : 'NO - KEY IS MISSING');
 
 const GROQ_ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
 const SYSTEM_PROMPT = `### DisasterGuard AI - System Instructions
